@@ -164,7 +164,8 @@ if config_env() == :prod do
       [
         verify: :verify_peer,
         cacerts: cacerts,
-        server_name_indication: db_hostname_charlist
+        verify_fun: {&:ssl_verify_hostname.verify_fun/3, []},
+        customize_hostname_check: [match_fun: fn _, _ -> true end]
       ]
     else
       [cacerts: :public_key.cacerts_get()]
