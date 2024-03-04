@@ -24,7 +24,7 @@ jobs:
     services:
       db:
         image: postgres:15
-        ports: ['5432:5432']
+        ports: ["5432:5432"]
         env:
           POSTGRES_PASSWORD: postgres
         options: >-
@@ -120,7 +120,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ghcr.io/nerves-hub/nerves-hub
+          images: ghcr.io/valiot/nerves-hub
           tags: |
             # short sha
             type=sha,enable={{is_default_branch}},prefix=,suffix=,format=short
